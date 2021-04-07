@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+.home {
+    background-color: rgb(51, 51, 51);
+    height: 500px;
+    width: 100%;
+}
+
+.home-head {
+    text-align: center;
+    color:rgb(97, 218, 251) ;
+    font-size: 70px;
+    padding-top: 2%;
+}
+
+.home-head-footer {
+    text-align: center;
+    color:white ;
+    font-size: 40px;
+    padding-top: 2%;
+
+}

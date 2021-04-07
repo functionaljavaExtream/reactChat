@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap');
+.header {
+    background-color: black;
+    height: 50px;
+    color:rgb(97, 218, 251);
+    width: 100%;
+
+    
+}
+
+.headerdiv {
+    margin-top: 10px;
+    width: 80px;
+    font-size: large;
+    color:rgb(97, 218, 251)
+    
+ }
+
+ .linkfont {
+    font-size: large;
+    color:rgb(97, 218, 251)
+ }
