@@ -1,86 +1,51 @@
-import React, {useState} from 'react';
-import { Button, Alert, Container } from 'react-bootstrap';
-import io from "socket.io-client";
+import React, {useState,useEffect,useLayoutEffect,useContext} from 'react';
+// import { Button, Alert, Container } from 'react-bootstrap';
+// import { Prev } from 'react-bootstrap/esm/PageItem';
+import socketIOClient   from "socket.io-client";
+// import data from '../data/data.json';
+import ChatForm from './chatcompo/ChatForm';
 import '../css/chat.css'
 
-type MyFormProps = {
-  onSubmit: (form: {imessage: string;}) => void
-};
-
-function Chat() {
-  const [form, setForm] = useState({
-    imessage: '',
-  })
-
-  const [chatMessage, setchatMessage] = useState({
-    messagesLi : [{text:''}]
-  })
 
 
-  const {imessage} = form;
-  const {messagesLi} = chatMessage;
+interface Message { id: number, message: string }
+  
+const socket = socketIOClient('http://localhost:4002',{
+  transports: ['websocket']
+});
 
-  const onChange = (e:React.ChangeEvent<HTMLInputElement>) => {
-    const {name, value} = e.target;
-    setForm({
-      ...form,
-     [name]: value,
-    });
+const Chat = ()=>{
+  const [ chatList, setChatList ] = useState<Message[]>([]);
+
+  const addTask = (userInput:string) => {
+    socket.emit('send message',userInput);
+  
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setForm({
-      imessage: '',
-    })
-    const newMessage = {
-      text: form.imessage
-    };
-    setchatMessage({
-      messagesLi: messagesLi.concat(newMessage)
-    })
-  }
-
+  useLayoutEffect(()=>{
+    // socket.on('receive message', function({id,message}:{id:number,message:string}) {
+    //   console.log('receiving message');
+    //   let copy = [...chatList];
+    //   copy = [...copy, { id: id, message: message }];
+    //     setChatList(copy);    
+    //   })
+      socket.on('receive message', function(message:{id:number,message:string}) {
+        console.log('receiving message');
+          setChatList(chatList => chatList.concat(message));    
+        })      
+    },[])
+  
   return (
-    <>
-      <ul id="messages">
-      {messagesLi.map(message => (
-            <li >{message.text}</li>
-          ))}
-      </ul> 
-      <form onSubmit={handleSubmit}>
-        <input name="imessage" value={imessage} onChange={onChange} />
-        <button type="submit">
-          등록
-        </button>
-      </form>
-    </>
-  )
+      <div>
+        {chatList.map((chat) => {
+          return <p key={chat.id}>{chat.message}</p>;
+        })}
+        <ChatForm addTask={addTask}></ChatForm>
+      </div>
+  );
+
+
 }
 
-
-
-
-
-
-
-// const Chat: React.FC = () =>{
-
-  
-//   return (
-//     <div className="Chat">
-//       <Container>
-//         <body>
-//           <ul id="messages">
-//             <li id="messagesLi"></li>
-//           </ul>
-//            <form id="form">
-//             <input id="input" autoComplete="off" value={} onChange={} /><button type="submit">Send</button>
-//           </form>          
-//         </body>
-//       </Container>
-//     </div>
-//   );
-// }
 
 export default Chat;

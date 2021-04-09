@@ -4,6 +4,7 @@ import './App.css';
 import Home from './components/Home';
 import Chat from './components/Chat';
 import Header from './components/Header';
+
 import io from "socket.io-client";
 
 
@@ -23,8 +24,9 @@ function App() {
         <Switch>
           {/* <Route path='/chat' component={Chat}/> */}
           {/* <Route path='/chat' render={() => <Chat onSubmit={onSubmit} />}/> */}
-          <Route path='/chat' render={() => <Chat />}/>
+          <Route path='/chat'component={Chat}/>
           <Route path='/' component={Home} />
+          
 
         </Switch>
       </Router>    

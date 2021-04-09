@@ -1,4 +1,4 @@
-import { Button, Alert, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import '../css/home.css'
 const Home: React.FC = () =>{
    
