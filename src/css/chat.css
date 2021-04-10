@@ -1,3 +1,14 @@
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
 
 #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
@@ -5,6 +16,216 @@ body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSyst
 #input:focus { outline: none; }
 #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
 
+
+
 #messages { list-style-type: none; margin: 0; padding: 0; }
-#messages > li { padding: 0.5rem 1rem; }
+#messagesright { list-style-type: none; margin: 0; padding: 0; float: right; }
+#messages > li {
+     /* display: block;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 16px;
+    max-width: 80%;
+    min-width: 10%;
+    border: 2px solid black;
+    border-radius: 15px;
+    position: relative;
+    animation: fadeInUp 0.5s ease;  */
+    /* position:relative;
+  padding:15px;
+  margin:1em 0 3em;
+  color:#fff;
+  background:#075698; 
+  background:-webkit-gradient(linear, 0 0, 0 100%, from(#2e88c4), to(#075698));
+  background:-moz-linear-gradient(#2e88c4, #075698);
+  background:-o-linear-gradient(#2e88c4, #075698);
+  background:linear-gradient(#2e88c4, #075698);
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  animation: fadeInUp 0.5s ease; */
+}
+
+#messages > li::after {
+    /* border-top:10px solid black;
+    border-left: 15px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+    box-shadow: 5px 5px 5px 5px gray;
+    content:"";
+    position:absolute;
+    top:9px;
+    left:-15px;
+    animation: fadeInUp 0.5s ease; */
+    /* content:"";
+    position:absolute;
+    bottom:-20px; 
+    left:50px; 
+    border-width:20px 0 0 20px; 
+    border-style:solid;
+    border-color:#075698 transparent;
+
+    display:block;
+    width:0; */
+}
+
+
+
+
+
+
 #messages > li:nth-child(odd) { background: #efefef; }
+
+.userImage {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-top: 16px;
+    
+    /* animation: fadeInUp 0.5s ease; */
+}
+
+.triangle-border {
+    position:relative;
+    padding:10px;
+    margin:1em 0 3em;
+    border:5px solid #5a8f00;
+    color:#333;
+    background:#fff;
+    /* css3 */
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    position: relative;
+    /* animation: fadeInUp 0.5s ease; */
+  }
+
+  .triangle-border.left {
+    margin-left: 15px;
+    margin-top: 2px;
+    max-width: 50%;
+  }
+
+
+  .triangle-border:before {
+    content:"";
+    position:absolute;
+    bottom:-20px; /* value = - border-top-width - border-bottom-width */
+    left:40px; /* controls horizontal position */
+    border-width:20px 20px 0;
+    border-style:solid;
+    border-color:#5a8f00 transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+  }
+  
+  /* creates the smaller  triangle */
+  .triangle-border:after {
+    content:"";
+    position:absolute;
+    bottom:-13px; /* value = - border-top-width - border-bottom-width */
+    left:47px; /* value = (:before left) + (:before border-left) - (:after border-left) */
+    border-width:13px 13px 0;
+    border-style:solid;
+    border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+  }
+
+
+  /* creates the larger triangle */
+.triangle-border.left:before {
+    top:-1px; /* controls vertical position */
+    bottom:auto;
+    left:-30px; /* value = - border-left-width - border-right-width */
+    border-width:15px 30px 15px 0;
+    border-color:transparent #5a8f00;
+  }
+  
+  /* creates the smaller  triangle */
+  .triangle-border.left:after {
+    top:5px; /* value = (:before top) + (:before border-top) - (:after border-top) */
+    bottom:auto;
+    left:-21px; /* value = - border-left-width - border-right-width */
+    border-width:9px 21px 9px 0;
+    border-color:transparent #fff;
+  }
+  
+/* right */
+
+  .userImageright {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-top: 16px;
+    left: -20px;
+    float: right;
+    /* animation: fadeInUp 0.5s ease; */
+  }
+  
+.triangle-right {
+  position:relative;
+  padding:10px;
+  margin: 30px -60px 3em;
+  border:5px solid #5a8f00;
+  color:#333;
+  background:#fff;
+  /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+  position: relative;
+  float: right;
+  }
+
+  
+  .triangle-right:before {
+content: "";
+position: absolute;
+bottom: 31px;
+right: -13px;
+border-width: 18px 20px 0;
+border-style: solid;
+border-color: #5a8f00 transparent;
+display: block;
+width: 0;
+  }
+
+  .triangle-right:after {
+    content: "";
+    position: absolute;
+    bottom: 26px;
+    right: -4px;
+    border-width: 19px 13px 0px;
+    border-style: solid;
+    border-color: #fff transparent;
+    display: block;
+    width: 0;
+  }
+  
+
+  .triangle-right.left {
+    margin-left: 15px;
+    margin-top: 2px;
+    max-width: 55%;
+  }
+  
+
+  .triangle-right.left:before {
+    top:-1px; /* controls vertical position */
+    bottom:auto;
+    left:-30px; /* value = - border-left-width - border-right-width */
+    border-width:15px 30px 15px 0;
+    border-color:transparent #5a8f00;
+  }
+
+  .triangle-right.left:after {
+    top:16px;
+    left:-40px;
+    bottom:auto;
+    border-width:15px 40px 0 0; 
+    border-color:transparent #075698;
+  }
+  

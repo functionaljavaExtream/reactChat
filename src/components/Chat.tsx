@@ -5,7 +5,8 @@ import socketIOClient   from "socket.io-client";
 // import data from '../data/data.json';
 import ChatForm from './chatcompo/ChatForm';
 import '../css/chat.css'
-
+import userimage from  '../imgs/user_image_default.png'
+import { idText } from 'typescript';
 
 
 interface Message { id: number, message: string }
@@ -23,28 +24,55 @@ const Chat = ()=>{
   }
 
   useLayoutEffect(()=>{
-    // socket.on('receive message', function({id,message}:{id:number,message:string}) {
-    //   console.log('receiving message');
-    //   let copy = [...chatList];
-    //   copy = [...copy, { id: id, message: message }];
-    //     setChatList(copy);    
-    //   })
-      socket.on('receive message', function(message:{id:number,message:string}) {
-        console.log('receiving message');
+      socket.on('receive message', function(message:{id:number,message:string}) {        
           setChatList(chatList => chatList.concat(message));    
         })      
-    },[])
+  },[])
   
+  let k = 0;
+
+  const OtherMessage = (chat:Message) => {
+    return  (
+      <div className="row" key={k++} id="messages" style={{ height: 90 }} >
+        <img className="userImage"  src={userimage} alt=""/>
+        <div className="col">
+          <div id="messages">username</div>
+          <div className="triangle-border left" key={chat.id}>{chat.message}</div>
+        </div>
+      </div>
+ 
+    )
+  }
+  //temp key... but...
+
+  const MyMessage = (chat:Message) => {
+    return  (
+
+      <div className="row" key={k++}  style={{ height: 90 }} >
+        <div className="col">
+          <div id="messagesright">username</div>
+          <div className="triangle-right right" key={chat.id}>{chat.message}</div>
+        </div>
+        <img className="userImageright"  src={userimage} alt=""/>
+      </div>
+ 
+    )
+  }
+
+
   return (
       <div>
-        {chatList.map((chat) => {
-          return <p key={chat.id}>{chat.message}</p>;
-        })}
+        <div>
+          {chatList.map((chat) => {
+            return  (
+              <OtherMessage {...chat} /> 
+            )
+            
+          })}
+        </div>
         <ChatForm addTask={addTask}></ChatForm>
       </div>
   );
-
-
 }
 
 

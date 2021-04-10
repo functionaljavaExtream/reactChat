@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import '../../css/chat.css'
+
 
 const ChatForm = ({ addTask }:{addTask:any}) => {
 
@@ -14,8 +16,8 @@ const ChatForm = ({ addTask }:{addTask:any}) => {
         setUserInput("");
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <input value={userInput} type="text" onChange={handleChange} placeholder="Enter chat..."/>
+        <form id="form" onSubmit={handleSubmit}>
+            <input value={userInput} id="input" type="text" onChange={handleChange} placeholder="Enter chat..."/>
             <button>Submit</button>
         </form>
     );
