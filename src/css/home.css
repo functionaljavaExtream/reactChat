@@ -14,8 +14,35 @@
 
 .home-head-footer {
     text-align: center;
+    align-items: center;
     color:white ;
     font-size: 40px;
     padding-top: 2%;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 100vh; */
+  }
 
+.room-select {
+    font-family: system-ui, serif;
+    font-size: 2rem;
+    padding: 3rem;
+    border-radius: 1rem;
+    border: 2px solid black;
+    color: black;
+    /* background: #ff6e6c; */
+    
+}
+.room-select:hover {
+    border: 2px solid wheat;
+    color: wheat;
+    cursor: pointer;
+}
+
+.link:hover {
+    text-decoration:none;
+    border: none;
 }

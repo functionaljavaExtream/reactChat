@@ -48,7 +48,7 @@ const Chat = ()=>{
   const MyMessage = (chat:Message) => {
     return  (
 
-      <div className="row" key={k++}  style={{ height: 90 }} >
+      <div className="row" key={k++}  style={{ height: 90 , margin:0 } } >
         <div className="col">
           <div id="messagesright">username</div>
           <div className="triangle-right right" key={chat.id}>{chat.message}</div>
@@ -65,7 +65,7 @@ const Chat = ()=>{
         <div>
           {chatList.map((chat) => {
             return  (
-              <OtherMessage {...chat} /> 
+              <MyMessage {...chat} /> 
             )
             
           })}

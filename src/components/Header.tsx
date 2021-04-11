@@ -11,9 +11,6 @@ const Header: React.FC = () =>{
                     <div className="headerdiv">
                         <Link className="linkfont" to="/">home</Link>
                     </div>
-                    <div className="headerdiv">
-                        <Link className="linkfont" to="/chat">chat</Link>
-                    </div>
                 </Row>
             </Container>
         </Row>
