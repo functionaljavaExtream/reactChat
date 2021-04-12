@@ -2,9 +2,7 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/home.css'
 const Home: React.FC = () =>{
-  const toChat = () => {
-
-  }
+  const somthin = "some";
   return (
     <div className="Home home">
       <Container>
@@ -15,9 +13,10 @@ const Home: React.FC = () =>{
           <div className="home-head-footer">
             <Link className="link" to="/chat">
               <div className="room-select">
-                home
+                MainServer
               </div>
             </Link>
+
           </div>
           </div>
       </Container>
