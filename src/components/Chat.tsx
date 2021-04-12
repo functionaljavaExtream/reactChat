@@ -1,4 +1,5 @@
 import React, {useState,useEffect,useLayoutEffect,useContext} from 'react';
+import { Container } from 'react-bootstrap';
 // import { Button, Alert, Container } from 'react-bootstrap';
 // import { Prev } from 'react-bootstrap/esm/PageItem';
 import socketIOClient   from "socket.io-client";
@@ -36,7 +37,7 @@ const Chat = ()=>{
       <div className="row" key={k++} id="messages" style={{ height: 90 }} >
         <img className="userImage"  src={userimage} alt=""/>
         <div className="col">
-          <div id="messages">username</div>
+          <div id="messages">{socket.id}</div>
           <div className="triangle-border left" key={chat.id}>{chat.message}</div>
         </div>
       </div>
@@ -48,12 +49,32 @@ const Chat = ()=>{
   const MyMessage = (chat:Message) => {
     return  (
 
-      <div className="row" key={k++}  style={{ height: 90 , margin:0 } } >
-        <div className="col">
-          <div id="messagesright">username</div>
-          <div className="triangle-right right" key={chat.id}>{chat.message}</div>
+      <div className="row" key={k++}  style={{ height: 90 , margin:0} } >
+        {/* <div className="col " id="messagesright">{socket.id}</div>
+        <div className="col "></div>
+        <img className="col " id="userImageright"  src={userimage} alt=""/>
+        <div className="col triangle-right right" key={chat.id}>{chat.message}</div> */}
+        <div className="col test">
+          <div className="row row-cols-2">
+          </div>
         </div>
-        <img className="userImageright"  src={userimage} alt=""/>
+
+        <div className="col test">
+          <div className="row row-cols-2">
+            <div className="col test"></div>
+            <div className="col test" id="messagesright">{socket.id}</div>
+            <div className="col test"><div className="triangle-right right" key={chat.id}>{chat.message}</div></div>
+            
+            <div className="col test"><img  id="userImageright"  src={userimage} alt=""/></div>
+
+            {/* <div className="col " id="messagesright">{socket.id}</div>
+            <div className="col triangle-right right" key={chat.id}>{chat.message}</div>
+            <img  id="userImageright"  src={userimage} alt=""/> */}
+          </div>
+        </div>
+        {/* <div className="col test">userimage</div>
+        <div className="col test">chatmessage</div> */}
+
       </div>
  
     )
@@ -61,17 +82,19 @@ const Chat = ()=>{
 
 
   return (
+    <Container>
       <div>
         <div>
           {chatList.map((chat) => {
             return  (
               <MyMessage {...chat} /> 
-            )
-            
-          })}
+              )
+              
+            })}
         </div>
         <ChatForm addTask={addTask}></ChatForm>
       </div>
+    </Container>
   );
 }
 

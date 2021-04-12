@@ -19,7 +19,7 @@ body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSyst
 
 
 #messages { list-style-type: none; margin: 0; padding: 0; }
-#messagesright { list-style-type: none; margin: 0; padding: 0; float: right; }
+#messagesright { padding: 0; text-align: right;}
 #messages > li {
      /* display: block;
     margin-left: 10px;
@@ -155,29 +155,29 @@ body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSyst
   
 /* right */
 
-  .userImageright {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    margin-top: 16px;
-    left: -20px;
+  #userImageright {
+    height: 60px;
+    margin-top: -20px;
     float: right;
     /* animation: fadeInUp 0.5s ease; */
+    margin-right: -10px;
   }
   
 .triangle-right {
-  position:relative;
-  padding:10px;
-  margin: 30px -60px 3em;
-  border:5px solid #5a8f00;
-  color:#333;
-  background:#fff;
-  /* css3 */
-  -webkit-border-radius:10px;
-  -moz-border-radius:10px;
-  border-radius:10px;
   position: relative;
-  float: right;
+  padding: 10px;
+  /* margin: 30px -60px 3em; */
+  border: 5px solid #5a8f00;
+  color: #333;
+  background: #fff;
+  border-radius: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+  position: relative;
+  left: 210px;
+  top: -10px;
   }
 
   
@@ -229,3 +229,10 @@ width: 0;
     border-color:transparent #075698;
   }
   
+
+  .test {
+    /* border: 1px solid black; */
+    width: 100px;
+    height: 50px;
+    float: right;
+  }
