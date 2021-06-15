@@ -1,13 +1,9 @@
 import React, {useState,useEffect,useLayoutEffect,useContext} from 'react';
 import { Container } from 'react-bootstrap';
-// import { Button, Alert, Container } from 'react-bootstrap';
-// import { Prev } from 'react-bootstrap/esm/PageItem';
 import socketIOClient   from "socket.io-client";
-// import data from '../data/data.json';
 import ChatForm from './chatcompo/ChatForm';
 import '../css/chat.css'
 import userimage from  '../imgs/user_image_default.png'
-import { idText } from 'typescript';
 
 
 interface Message { id: number, message: string }
@@ -16,12 +12,11 @@ const socket = socketIOClient('http://localhost:4002',{
   transports: ['websocket']
 });
 
-const Chat = ()=>{
+const Chat:React.FunctionComponent<any> = ()=>{
   const [ chatList, setChatList ] = useState<Message[]>([]);
 
   const addTask = (userInput:string) => {
-    socket.emit('send message',userInput);
-  
+    socket.emit('send message',userInput);  
   }
 
   useLayoutEffect(()=>{

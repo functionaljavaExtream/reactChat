@@ -7,11 +7,13 @@ const Header: React.FC = () =>{
     <div className="header">
         <Row className="header">
             <Container>
-                <Row className="header">
-                    <div className="headerdiv">
-                        <Link className="linkfont" to="/">home</Link>
+
+                    <div className="wrapper">
+                      <div className="headerdiv">
+                        welcom to ReactChat
+                      </div>
                     </div>
-                </Row>
+
             </Container>
         </Row>
     </div>

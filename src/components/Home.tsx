@@ -2,8 +2,7 @@ import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../css/home.css'
 const Home: React.FC = () =>{
-  const somthin = "some";
-  const hello ="hello";
+
   return (
     <div className="Home home">
       <Container>

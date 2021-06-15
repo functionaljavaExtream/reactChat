@@ -31,18 +31,44 @@
     font-size: 2rem;
     padding: 3rem;
     border-radius: 1rem;
-    border: 2px solid white;
-    color: white;
+    border: 2px solid black;
+    color: black;
     /* background: #ff6e6c; */
     
 }
 .room-select:hover {
-    border: 2px solid wheat;
-    color: wheat;
+    border: 2px solid black;
+    color: black;
     cursor: pointer;
 }
 
 .link:hover {
     text-decoration:none;
     border: none;
+}
+
+.close {
+    position: relative;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+    cursor: pointer;
+    color: #f44336;
+}
+
+.roomList {
+    position: relative;
+    display: inline-block;
+    right: 0;
+    top: 0;
+    padding: 12px 16px 12px 16px;
+}
+
+.closebutton {
+    cursor: pointer;
+    font-size: xx-large;
 }
